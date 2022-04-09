@@ -35,6 +35,7 @@ $routes->setAutoRoute(true);
 //$routes->post('/registrasi', 'RegistrasiController::registrasi');
 $routes->post('registrasi', 'RegistrasiController::create');
 $routes->get('registrasi',  'RegistrasiController::index');
+$routes->post('login', 'LoginController::login');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
