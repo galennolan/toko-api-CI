@@ -25,7 +25,7 @@ class RegistrasiController extends ResourceController
         ]; 
         $model = new MRegistrasi();
         $model->insert($data); 
-         return $this-> responseHasil(200,true, "Registrasi Berhasil");
+         return $this-> responseHasil(200,true, $data);
     }
    
 }

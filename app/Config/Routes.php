@@ -36,6 +36,18 @@ $routes->setAutoRoute(true);
 $routes->post('registrasi', 'RegistrasiController::create');
 $routes->get('registrasi',  'RegistrasiController::index');
 $routes->post('login', 'LoginController::login');
+
+$routes->group('produk', function ($routes){
+    $routes->post('/','ProdukController::create');
+    $routes->get('/','ProdukController::list');
+    $routes->get('(:segment)','ProdukController::detail/$1');
+    $routes->put('(:segment)','ProdukController::detail/$1');
+    $routes->put('(:segment)','ProdukController::ubah/$1');
+    $routes->patch('(:segment)','ProdukController::ubah/$1');
+    $routes->delete('(:segment)','ProdukController::hapus/$1');
+});
+
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
