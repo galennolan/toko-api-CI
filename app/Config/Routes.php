@@ -33,8 +33,8 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 //$routes->get('/', 'Home::index');//baris 34
 //$routes->post('/registrasi', 'RegistrasiController::registrasi');
-$routes->post('registrasi', 'RegistrasiController::create');
-$routes->get('registrasi',  'RegistrasiController::index');
+$routes->post('registrasi', 'RegistrasiController::registrasi');
+$routes->get('/registrasi','RegistrasiController::index');
 $routes->post('login', 'LoginController::login');
 
 $routes->group('produk', function ($routes){
