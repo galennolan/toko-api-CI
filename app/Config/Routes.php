@@ -33,9 +33,21 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 //$routes->get('/', 'Home::index');//baris 34
 //$routes->post('/registrasi', 'RegistrasiController::registrasi');
-$routes->post('registrasi', 'RegistrasiController::create');
-$routes->get('registrasi',  'RegistrasiController::index');
+$routes->post('registrasi', 'RegistrasiController::registrasi');
+$routes->get('/registrasi','RegistrasiController::index');
 $routes->post('login', 'LoginController::login');
+
+$routes->group('produk', function ($routes){
+    $routes->post('/','ProdukController::create');
+    $routes->get('/','ProdukController::list');
+    $routes->get('(:segment)','ProdukController::detail/$1');
+    $routes->put('(:segment)','ProdukController::detail/$1');
+    $routes->put('(:segment)','ProdukController::ubah/$1');
+    $routes->patch('(:segment)','ProdukController::ubah/$1');
+    $routes->delete('(:segment)','ProdukController::hapus/$1');
+});
+
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

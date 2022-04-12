@@ -1,13 +1,13 @@
 <?php 
 namespace App\Controllers;
 use App\Models\MRegistrasi;
-use CodeIgniter\API\ResponseTrait;
+//use CodeIgniter\API\ResponseTrait;
 use CodeIgniter\RESTful\ResourceController;
 
 
 class RegistrasiController extends ResourceController
 {
-    public $format = 'json';
+   // public $format = 'json';
     protected function responseHasil($code, $status, $data)
     {
         return $this->respond([ 
@@ -16,16 +16,23 @@ class RegistrasiController extends ResourceController
             'data' => $data,
         ]);
     }
+    public function index()
+    {
+        $model = new MRegistrasi();
+        $member =$model->findAll();
+        return $this->responseHasil(200,true, $member);
+    }
+
  // create
-    public function create() {
+    public function registrasi() {
         $data = [
-            'name' => $this->request->getVar('name'),
+            'nama' => $this->request->getVar('nama'),
             'email'  => $this->request->getVar('email'),
             'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT)
         ]; 
         $model = new MRegistrasi();
         $model->insert($data); 
-         return $this-> responseHasil(200,true, "Registrasi Berhasil");
+         return $this-> responseHasil(200,true, $data);
     }
    
 }
