@@ -1,7 +1,6 @@
 <?php 
 namespace App\Controllers;
 use App\Models\MRegistrasi;
-//use CodeIgniter\API\ResponseTrait;
 use CodeIgniter\RESTful\ResourceController;
 
 
